@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_layout_hero_sections",
+  "info": {
+    "displayName": "Hero Section"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Subtitle": {
+      "type": "string"
+    },
+    "VideoBackground": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Buttons": {
+      "type": "component",
+      "component": "shared.links",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

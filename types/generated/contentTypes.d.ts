@@ -441,12 +441,12 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
-  collectionName: 'headers';
+export interface ApiMainPageMainPage extends Struct.SingleTypeSchema {
+  collectionName: 'main_pages';
   info: {
-    displayName: 'Header';
-    pluralName: 'headers';
-    singularName: 'header';
+    displayName: 'MainPage';
+    pluralName: 'main-pages';
+    singularName: 'main-page';
   };
   options: {
     draftAndPublish: true;
@@ -455,15 +455,15 @@ export interface ApiHeaderHeader extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Header: Schema.Attribute.Component<'layout.header', false>;
+    HeroSection: Schema.Attribute.Component<'layout.hero-section', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::header.header'
+      'api::main-page.main-page'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    subtitle: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -981,7 +981,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::header.header': ApiHeaderHeader;
+      'api::main-page.main-page': ApiMainPageMainPage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

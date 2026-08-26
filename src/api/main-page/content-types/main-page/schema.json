@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "main_pages",
+  "info": {
+    "singularName": "main-page",
+    "pluralName": "main-pages",
+    "displayName": "MainPage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Header": {
+      "type": "component",
+      "component": "layout.header",
+      "repeatable": false
+    },
+    "HeroSection": {
+      "type": "component",
+      "component": "layout.hero-section",
+      "repeatable": false
+    }
+  }
+}

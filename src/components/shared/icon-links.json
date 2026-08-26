@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_icon_links",
+  "info": {
+    "displayName": "icon links"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "href": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
