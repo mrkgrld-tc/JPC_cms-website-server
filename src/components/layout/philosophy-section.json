@@ -1,19 +1,19 @@
 {
-  "collectionName": "components_layout_hero_sections",
+  "collectionName": "components_layout_philosophy_sections",
   "info": {
-    "displayName": "Hero Section"
+    "displayName": "Philosophy Section"
   },
   "options": {},
   "attributes": {
-    "title": {
+    "label": {
       "type": "string"
     },
-    "subtitle": {
+    "qoute": {
       "type": "string"
     },
-    "background_media": {
+    "image": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "allowedTypes": [
         "images",
         "files",
@@ -21,9 +21,9 @@
         "audios"
       ]
     },
-    "cta_buttons": {
+    "description": {
       "type": "component",
-      "component": "shared.links",
+      "component": "shared.text-content",
       "repeatable": true
     }
   },

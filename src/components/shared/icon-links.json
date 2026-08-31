@@ -1,7 +1,8 @@
 {
   "collectionName": "components_shared_icon_links",
   "info": {
-    "displayName": "icon links"
+    "displayName": "Icon Links",
+    "icon": "attachment"
   },
   "options": {},
   "attributes": {
@@ -15,7 +16,14 @@
         "audios"
       ]
     },
-    "href": {
+    "isExternal": {
+      "type": "enumeration",
+      "enum": [
+        "True",
+        "False"
+      ]
+    },
+    "link": {
       "type": "text"
     }
   },

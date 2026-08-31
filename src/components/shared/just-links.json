@@ -1,23 +1,20 @@
 {
-  "collectionName": "components_shared_links",
+  "collectionName": "components_shared_just_links",
   "info": {
-    "displayName": "Text Links",
+    "displayName": "Just Links",
     "icon": "attachment"
   },
   "options": {},
   "attributes": {
-    "text": {
+    "href": {
       "type": "string"
     },
-    "is_external": {
+    "isExternal": {
       "type": "enumeration",
       "enum": [
         "True",
         "False"
       ]
-    },
-    "href": {
-      "type": "text"
     }
   },
   "config": {}

@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_and_updates",
+  "info": {
+    "singularName": "news-and-update",
+    "pluralName": "news-and-updates",
+    "displayName": "News And Updates"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titile": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "body": {
+      "type": "richtext"
+    },
+    "author": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "published_date": {
+      "type": "datetime"
+    }
+  }
+}
