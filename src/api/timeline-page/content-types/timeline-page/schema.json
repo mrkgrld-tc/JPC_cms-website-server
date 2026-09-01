@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "timeline_pages",
+  "info": {
+    "singularName": "timeline-page",
+    "pluralName": "timeline-pages",
+    "displayName": "Timeline Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero_section": {
+      "type": "component",
+      "component": "layout.hero-section",
+      "repeatable": false
+    },
+    "timeline_card": {
+      "type": "component",
+      "component": "shared.time-line",
+      "repeatable": true
+    }
+  }
+}

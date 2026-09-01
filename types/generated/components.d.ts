@@ -92,6 +92,17 @@ export interface SharedTextContent extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedTimeLine extends Struct.ComponentSchema {
+  collectionName: 'components_shared_time_lines';
+  info: {
+    displayName: 'time_line';
+  };
+  attributes: {
+    date: Schema.Attribute.Date;
+    description: Schema.Attribute.RichText;
+  };
+}
+
 declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
@@ -102,6 +113,7 @@ declare module '@strapi/strapi' {
       'shared.just-links': SharedJustLinks;
       'shared.links': SharedLinks;
       'shared.text-content': SharedTextContent;
+      'shared.time-line': SharedTimeLine;
     }
   }
 }

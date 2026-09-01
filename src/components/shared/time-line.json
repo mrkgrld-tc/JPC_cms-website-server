@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_time_lines",
+  "info": {
+    "displayName": "time_line"
+  },
+  "options": {},
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

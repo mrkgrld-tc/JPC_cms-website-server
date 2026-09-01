@@ -441,6 +441,78 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
+  collectionName: 'about_pages';
+  info: {
+    displayName: 'About Page';
+    pluralName: 'about-pages';
+    singularName: 'about-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    beginning_of_jpc: Schema.Attribute.RichText;
+    board_members: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::board-member.board-member'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    hero_section: Schema.Attribute.Component<'layout.hero-section', false>;
+    image_president: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    institutional_goals: Schema.Attribute.RichText;
+    institutional_objectives: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::about-page.about-page'
+    > &
+      Schema.Attribute.Private;
+    mission: Schema.Attribute.RichText;
+    publishedAt: Schema.Attribute.DateTime;
+    quality_policy: Schema.Attribute.RichText;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    vission: Schema.Attribute.RichText;
+  };
+}
+
+export interface ApiBoardMemberBoardMember extends Struct.CollectionTypeSchema {
+  collectionName: 'board_members';
+  info: {
+    displayName: 'Board Member';
+    pluralName: 'board-members';
+    singularName: 'board-member';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    department: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::board-member.board-member'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    position: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFooterFooter extends Struct.SingleTypeSchema {
   collectionName: 'footers';
   info: {
@@ -558,6 +630,20 @@ export interface ApiNewsAndUpdateNewsAndUpdate
   attributes: {
     author: Schema.Attribute.String;
     body: Schema.Attribute.RichText;
+    category: Schema.Attribute.Enumeration<
+      [
+        'Achievement',
+        'Announcement',
+        'Campus Life',
+        'Academic',
+        'Research',
+        'Community Outreach',
+        'Sports',
+        'Alumni',
+        'Events',
+        'Administration',
+      ]
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -592,6 +678,18 @@ export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    category: Schema.Attribute.Enumeration<
+      [
+        'College of Engineering and Technology',
+        'College of Education',
+        'College of Business Administration',
+        'College of Arts and Sciences',
+        'College of Nursing and Health Sciences',
+        'College of Criminal Justice',
+        'College of Information Technology',
+        'Graduate School',
+      ]
+    >;
     code: Schema.Attribute.String;
     cover_image: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
@@ -602,7 +700,6 @@ export interface ApiProgramProgram extends Struct.CollectionTypeSchema {
     degree_type: Schema.Attribute.Enumeration<
       ['Bachelor', 'Master', 'Doctorate', 'Certificate']
     >;
-    department: Schema.Attribute.String;
     description: Schema.Attribute.RichText;
     duration: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -648,6 +745,35 @@ export interface ApiSiteSettingSiteSetting extends Struct.SingleTypeSchema {
     >;
     school_name: Schema.Attribute.String;
     school_phone_number: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTimelinePageTimelinePage extends Struct.SingleTypeSchema {
+  collectionName: 'timeline_pages';
+  info: {
+    displayName: 'Timeline Page';
+    pluralName: 'timeline-pages';
+    singularName: 'timeline-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    hero_section: Schema.Attribute.Component<'layout.hero-section', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::timeline-page.timeline-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    timeline_card: Schema.Attribute.Component<'shared.time-line', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1165,12 +1291,15 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::about-page.about-page': ApiAboutPageAboutPage;
+      'api::board-member.board-member': ApiBoardMemberBoardMember;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::main-page.main-page': ApiMainPageMainPage;
       'api::news-and-update.news-and-update': ApiNewsAndUpdateNewsAndUpdate;
       'api::program.program': ApiProgramProgram;
       'api::site-setting.site-setting': ApiSiteSettingSiteSetting;
+      'api::timeline-page.timeline-page': ApiTimelinePageTimelinePage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

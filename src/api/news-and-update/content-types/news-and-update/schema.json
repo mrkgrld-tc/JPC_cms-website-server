@@ -17,6 +17,21 @@
     "subtitle": {
       "type": "string"
     },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Achievement",
+        "Announcement",
+        "Campus Life",
+        "Academic",
+        "Research",
+        "Community Outreach",
+        "Sports",
+        "Alumni",
+        "Events",
+        "Administration"
+      ]
+    },
     "body": {
       "type": "richtext"
     },

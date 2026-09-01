@@ -17,9 +17,6 @@
     "code": {
       "type": "string"
     },
-    "department": {
-      "type": "string"
-    },
     "duration": {
       "type": "string"
     },
@@ -30,6 +27,19 @@
         "Master",
         "Doctorate",
         "Certificate"
+      ]
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "College of Engineering and Technology",
+        "College of Education",
+        "College of Business Administration",
+        "College of Arts and Sciences",
+        "College of Nursing and Health Sciences",
+        "College of Criminal Justice",
+        "College of Information Technology",
+        "Graduate School"
       ]
     },
     "description": {
